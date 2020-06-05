@@ -11,6 +11,7 @@
 from sort.commons import evaluate_sort, generate_random_list, generate_nearly_sorted_list
 from sort.sorts.bubble_sort import bubble_sort
 from sort.sorts.insertion_sort import insertion_sort
+from sort.sorts.merge_sort import merge_sort
 from sort.sorts.selection_sort import selection_sort
 
 # 乱序排序
@@ -24,6 +25,7 @@ evaluate_sort(selection_sort, l.copy())
 evaluate_sort(insertion_sort, l.copy())
 evaluate_sort(shell_sort, l.copy())
 evaluate_sort(bubble_sort, l.copy())
+evaluate_sort(merge_sort, l.copy())
 # 几乎有序排序
 print()
 print('-------------几乎有序排序-------------')
@@ -33,3 +35,4 @@ evaluate_sort(selection_sort, l2.copy())
 evaluate_sort(insertion_sort, l2.copy())
 evaluate_sort(shell_sort, l.copy())
 evaluate_sort(bubble_sort, l2.copy())
+evaluate_sort(merge_sort, l2.copy())
