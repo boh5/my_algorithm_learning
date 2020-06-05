@@ -8,19 +8,23 @@
     :author: Huangbo
     :date: 2020/6/4
 """
-from typing import List
-
-from sort.sorts.insertion_sort import insertion_sort
+from typing import List, Tuple
 
 
-def shell_sort(l: List, init_gap: int = 5, step: int = 1):
-    gap = init_gap
-    groups = len(l) // gap
+def shell_sort(l: List, gap_list: Tuple = (109, 41, 19, 5, 1)) -> List:
+
+    # for gap in gap_list:
+    gap = len(l) // 2
     while gap > 0:
-        for i in range(groups):
-            tmp_list = insertion_sort(l[i * gap: (i + 1) * gap])
-            index = i * gap
-            for num in tmp_list:
-                l[index] = num
-                index += 1
-        gap -= step
+        groups = len(l) // gap
+        for i in range(1, groups):
+            tmp_val = l[gap * i]
+            j = (i + 1) * gap
+            while j > 0:
+                j -= gap
+                if l[j - gap] < tmp_val:
+                    break
+                l[j] = l[j - gap]
+            l[j] = tmp_val
+        gap //= 2
+    return l
