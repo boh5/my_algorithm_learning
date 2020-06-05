@@ -15,11 +15,12 @@ def insertion_sort(l: List) -> List:
     length = len(l)
     for i in range(1, length):
         tmp_val = l[i]
-        for j in range(i-1, -1, -1):
-            if l[j] > tmp_val:
-                l[j+1] = l[j]
-            else:
-                l[j] = tmp_val
+        j = i + 1
+        while j > 0:
+            j -= 1
+            if l[j - 1] < tmp_val:
                 break
+            l[j] = l[j - 1]
+        l[j] = tmp_val
 
     return l
