@@ -34,7 +34,7 @@ def is_sorted(func: Callable, l: List) -> None:
         assert l[i] <= l[i + 1], f'Not Sorted! func<{func.__name__}> [{i}]={l[i]}, [{i + 1}]={l[i + 1]}'
 
 
-def evaluate_sort(sort_func: Callable, l: List, repeat: int = 1) -> None:
+def evaluate_sort(sort_func: Callable, l: List, repeat: int = 1) -> float:
     total_time = 0
     for i in range(repeat):
         list_tmp = l.copy()
@@ -44,3 +44,4 @@ def evaluate_sort(sort_func: Callable, l: List, repeat: int = 1) -> None:
         is_sorted(sort_func, list_tmp)
         total_time += (end - start)
     print(f'{sort_func.__name__}: {total_time}s')
+    return total_time
